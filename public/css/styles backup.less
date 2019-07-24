@@ -1,0 +1,426 @@
+// out: global.css, sourcemap: true, compress: false
+
+@images_folder: '/public/images/';
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body, html{
+  //height: 100%;
+}
+
+.background(@image_path){
+    background: url("@{images_folder}@{image_path}.png")  no-repeat center center;
+    background-size: cover;
+}
+
+.block-size{
+  width: 100%;
+  max-width: 1180px;
+  min-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hide{
+  display: none !important;
+}
+
+.col{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+// ===================================================
+// ======================== Кнопки ===================
+// ===================================================
+.btn-yellow(@w, @h, @text-size){
+  @color1: rgb(255,163,0);
+  @color2: rgb(255,129,0);
+  @border-radius: 37px;
+
+  width: @w;
+  height: @h;
+  line-height: @h;
+  a{
+    font-size: @text-size;
+  }
+  border-radius: @border-radius;
+  background: -moz-linear-gradient( -93deg, @color1 3%, @color2 100%);
+  background: linear-gradient( -93deg, @color1 3%, @color2 100%);
+  background: -ms-linear-gradient( -93deg, @color1 3%, @color2 100%);
+
+  font-family: "Montserrat";
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: block;
+    text-align: center;
+    border-radius: @border-radius;
+    background-color: rgba(255,255,255,0.0);
+
+    &:hover{
+      background-color: rgba(0,0,0,0.1);
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+}
+
+
+// ===================================================
+// ======================== Шапка ===================
+// ===================================================
+.header{
+  //min-width: 600px;
+  .background('header-bg');
+  // height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  .header-ellipse{
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: ~"calc(50% + 23px)";
+    opacity: 0.6;
+  }
+
+  .header-car{
+    display: block;
+    position: absolute;
+    bottom: -70px;
+    left: ~"calc(50% - 35px)";
+  }
+
+  @media (max-width:800px){
+    .header-car, .header-ellipse{
+      display: none;
+    }
+  }
+
+  ul{
+    .block-size;
+    font-family: "Montserrat";
+    padding-top: 30px;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 10;
+
+    h1{
+      font-size: 30px;
+      line-height: 60px;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    li{
+      display: flex;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-top: 20px;
+      width: auto;
+      max-width: 100%;
+      min-height: 50px;
+
+      img{
+        display: block;
+        //align-self: center;
+        height: fit-content;
+      }
+
+      div{
+        display: block;
+
+        h3{
+          font-size: 20px;
+          color: rgb(255, 255, 255);
+          line-height: 30px;
+          font-family: "Montserrat";
+          font-weight: normal;
+          text-align: right;
+
+        }
+      }
+
+    }
+
+    li:first-child{
+      display: block;
+      padding-left: 0;
+      padding-top: 0;
+    }
+
+    li:last-child{
+      padding-right: 0;
+    }
+
+    h2{
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      line-height: 30px;
+      //align-self: center;
+    }
+
+    img+h2, img+div{
+      padding-left: 15px;
+    }
+
+    p{
+      font-size: 14px;
+      color: rgb(255, 255, 255);
+      line-height: 22px;
+      font-family: "Montserrat";
+    }
+  }
+
+  .mobile-menu-container{
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    z-index: 10;
+
+    .menu-icon{
+      z-index: 10;
+      position: absolute;
+      right: 0;
+      margin-right: 42px;
+      margin-top: 7px;
+
+      width: 32px;
+      height: 32px;
+      background-image: url('/public/images/menu-icon.png');
+    }
+
+    .menu-icon-close{
+      background-image: url('/public/images/menu-icon-close.png');
+      position: fixed;
+    }
+
+    .popup-bg{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color:black;
+    }
+  }
+
+  @media (max-width:1190px){
+    h2{
+      font-size: 18px !important;
+      line-height: 18px !important;
+    }
+
+    .email, .whatsapp, .phone{
+      display: none;
+    }
+
+    .mobile-menu-container{
+      display: block;
+
+      .mobile-menu{
+        display: flex;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        align-items: center;
+      }
+
+      .mobile-menu-content{
+        display: block;
+        width: auto;
+        padding: 0;
+
+        li{
+          display: flex !important;
+          padding-left: 0px;
+          padding-right: 0;
+          padding-top: 30px;
+          min-height: 0;
+          white-space: normal;
+
+          div{
+            h3{
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ===================================================
+  // ======================== Первый блок ===================
+  // ===================================================
+  .block1{
+    .block-size;
+    padding-top: 55px;
+
+    .font{
+      font-size: 65px !important;
+      font-family: "Montserrat";
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.231 !important;
+    }
+
+    h2{
+      .font;
+    }
+
+    h3{
+      .font;
+      font-size: 55px !important;
+      span{
+        color: #ff8300;
+      }
+    }
+
+    h4{
+      font-size: 40px;
+      font-family: "Montserrat Medium";
+      color: rgb(255, 255, 255);
+      line-height: 1.5;
+      font-weight: normal;
+      margin-top: 57px;
+      position: relative;
+      span{
+        font-weight: bold;
+      }
+
+      .yellow{
+        color: #ff8300;
+      }
+    }
+
+    h3+h4::before{
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 4px;
+      width: 4px;
+      background-color: rgb(255, 138, 0);
+      height: 91px;
+    }
+
+    h3+h4{
+      padding-left: 24px;
+    }
+
+    .place{
+      border-width: 2px;
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      height: 117px;
+      width: 521px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 58px;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 60px;
+
+      img{
+        display: block;
+        margin-right: 20px;
+      }
+
+      .descritpion{
+        h5{
+          display: block;
+          font-size: 24px;
+          font-family: "Montserrat";
+          color: rgb(255, 255, 255);
+          font-weight: bold;
+          line-height: 1.25;
+        }
+      }
+    }
+
+    .btn{
+      margin-top: 60px;
+      margin-bottom: 67px;
+      .btn-yellow(460px, 80px, 20px);
+    }
+
+
+    @media (max-width: 576px){
+      @scale: 0.46;
+      h2{
+          font-size: 65px * @scale !important;
+      }
+      h3{
+          font-size: 55px * @scale !important;
+      }
+      h4{
+        font-size: 40px * @scale;
+        margin-top: 57px * @scale*0.5;
+      }
+      .place{
+        width: 100%;
+        height: 117px * @scale*1.4;
+        margin-top: 60px * @scale * 0.5;
+        img{
+          width: 25%;
+          margin-right: 20px * @scale;
+        }
+        .descritpion{
+          h5{
+            font-size: 24px * @scale*1.2;
+          }
+        }
+      }
+      .btn{
+        margin-top: 60px * @scale * 0.5;
+        margin-bottom: 60px * @scale *1.2;
+        .btn-yellow(100%, 60px, 16px);
+      }
+      h3+h4::before{
+        content: '';
+        position: absolute;
+        top: 7px;
+        left: 2px;
+        width: 2px;
+        background-color: rgb(255, 138, 0);
+        height: 42px;
+      }
+
+      h3+h4{
+        padding-left: 15px;
+      }
+
+      div+h4{
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 576px){
+    .block1{
+      padding-top: 25px !important;
+      width: auto;
+    }
+  }
+}
+
+@media (max-width:1190px){
+  .header-wrapper, .block1{
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+  }
+}

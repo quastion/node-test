@@ -1,0 +1,23 @@
+{
+  "name": "lending1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lending"
+  ],
+  "author": "Vladislav K",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "smooth-scroll": "^16.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.0"
+  }
+}
